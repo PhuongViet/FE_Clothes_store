@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>GioHaNoi</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- REPONSIVE -->
+    <style>
+    @media only screen and (max-width: 400px) {
+            .menu{
+                display: none;
+            }
+            .right-menu{
+                display: none;
+            }
+            .logo img{
+                margin-left: 80px;
+            }
+        }
+        @media only screen and (max-width: 768px) {
+    header {
+        padding: 12px 20px;
+    }
+
+    .menu > li {
+        padding: 10px;
+    }
+
+    .right-menu > li {
+        padding: 0 10px;
+    }
+
+    .left-footer input {
+        width: 100%;
+    }
+    footer{
+        display: block;
+    }
+    .right-footer{
+        justify-content: left;
+    }
+    
+    .cartegory-left {
+        display: none;
+    }
+
+    .cartegory-right {
+        width: 100%;
+    }
+
+    .cartegory-right-top-item:first-child {
+        flex: 1; /* Đặt lại độ rộng cho tiêu đề lớn trong trường hợp di động */
+    }
+
+    .cartegory-right-content-item {
+        flex: 0 1 calc(50% - 12px); /* Hiển thị 2 sản phẩm trên mỗi hàng trong trường hợp di động */
+    }
+    .nav-bar-btn{
+        display: block;
+    }
+    .logo,
+    .menu,
+    .right-menu{
+        display: none;
+    }
+    .logo-mobile{
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    header {
+        padding: 12px 30px;
+    }
+
+    .menu > li {
+        padding: 12px 20px;
+    }
+
+    .right-menu > li {
+        padding: 0 15px;
+    }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+    header {
+        padding: 12px 40px;
+    }
+
+    .menu > li {
+        padding: 15px 25px;
+    }
+
+    .right-menu > li {
+        padding: 0 20px;
+    }
+    .cartegory-right-content-item {
+        flex: 0 1 calc(33.33% - 12px); /* Hiển thị 3 sản phẩm trên mỗi hàng cho màn hình lớn hơn */
+    }
+}
+
+    </style>
+    <!-- DARKMODE  -->
+    <style>
+          /* Existing styles for dark mode */
+          .dark {
+            background-color: black;
+            color: white;
+        }
+
+        .dark header {
+            background-color: #3f3e3e;
+        }
+
+        .dark .right-menu #switch-mode {
+            color: white;
+        }
+
+        /* Updated styles for links inside <a> tags in dark mode */
+        .dark header .menu > li > a,
+        .dark header .menu .sub-menu li a {
+            color: white;
+        }
+        .dark #Slider .dot-container .dot.active {
+            background-color: gray !important;
+        }
+        .dark footer .left-footer button{
+            background-color: black ;
+            color: white;
+        }
+        .dark header .right-menu input {
+            background-color: #3f3e3e;
+            color: white;
+        }
+        .dark .cartegory-left li,
+        .dark .cartegory-left a,
+        .dark .cartegory-right-content-item h1{
+            color: white;
+        }
+    </style>
+</head>
+<body class="">
+    <header >
+        <!-- ----------------MOBILE/TABLET---------------- -->
+        <label for="nav-mobile-input" class="nav-bar-btn">
+            <li><i class="fa-solid fa-bars"></i></li>
+        </label>
+
+        <input type="checkbox" name="" class="nav-input" id="nav-mobile-input" hidden>
+        <label for="nav-mobile-input" class="nav-overlay"></label>
+        
+        <div class="right-menu-mobile">
+            <li class="rm-intem"><input placeholder="Search" type="text"><i class="fa-solid fa-magnifying-glass"></i></li>
+            <!-- user -->
+            <li class="rm-intem"><i class="fa-regular fa-user"></i> <p>User</p></li>
+            <!-- shopping-bag -->
+            <li class="rm-intem"><i class="fa-solid fa-bag-shopping"></i><p>Cart</p></li>
+            <li class="rm-intem"><i class="fa-solid fa-right-from-bracket"></i><p>Log out</p></li>
+        </div>
+        <div class="logo-mobile">
+            <img src="./img/1.png" style="height: 64px;">
+        </div>
+        
+
+
+
+
+        <!-- ------------------LAPTOP---------------- -->
+        <!-- Dung flex chia cai o giua lam 3 con 2 cái trái phải mỗi cái 1 -->
+        <div class="logo">
+            <a href="./index.html"><img src="./img/1.png" style="height: 64px;"></a>
+         
+        </div>
+
+        <div class="menu row">
+                <li><a href="./category.html">Men</a>
+                    <ul class="sub-menu">
+                        <li><a href="">Shirts</a></li>
+                        <li><a href="">Jacket&Coat</a></li>
+                        <li><a href="">Trousers</a></li>
+                        <li><a href="">TOP</a></li>
+                        <li><a href=""> ACCESORIES</a></li>
+
+                    </ul>
+                
+                
+                </li>
+                <li><a href="#">Women</a>
+                    <ul class="sub-menu">
+                        <li><a href="">Skirts</a></li>
+                        <li><a href="">Shirts</a></li>
+                        <li><a href="">Jacket&Coat</a></li>
+                        <li><a href="">Trousers</a></li>
+                        <li><a href="">TOP</a></li>
+                        <li><a href=""> ACCESORIES</a></li>
+
+
+                    </ul>
+                </li>
+                <li><a href="#">Colection</a>
+                    <ul class="sub-menu">
+                        <li ><a href="">Spring Summer - 2024</a></li>
+                        <li ><a href="">Fall Winter-2023</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Information</a></li>
+
+        </div>
+
+        <div class="right-menu">
+            <li><input placeholder="Search" type="text"><i class="fa-solid fa-magnifying-glass"></i></li>
+            
+            <!-- headphone -->
+            <li><i class="icon-ic_headphones"></i></li>
+            <!-- user -->
+            <li><i class="fa-regular fa-user"></i></li>
+            <!-- shopping-bag -->
+            <li><i class="fa-solid fa-bag-shopping"></i></li>
+            <button id="switch-mode" ><i class="fa-solid fa-moon"></i></button>
+        </div>
+
+        
+    </header>
+<!-- ------------------------------HEADER------------------------------ -->
+<section class="cartegory">
+        <div class="container">
+            <div class="cartegory-top row">
+                <p>Home</p> <span>&#8594;</span> <p>Men</p> <span>&#8594;</span> <p>Shirts</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="cartegory-left">
+                    <ul>
+                        <li class="cartegory-left-li"><a href="">Men</a>
+                            <ul>
+                                <li><a href="">Shirts</a></li>
+                                <li><a href="">Jacket&Coat</a></li>
+                                <li><a href="">Trousers</a></li>
+                                <li><a href="">TOP</a></li>
+                                <li><a href="">ACCESORIES</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="cartegory-left-li"><a href="">Women</a>
+                            <ul>
+                                <li><a href="">Shirts</a></li>
+                                <li><a href="">Jacket&Coat</a></li>
+                                <li><a href="">Trousers</a></li>
+                                <li><a href="">TOP</a></li>
+                                <li><a href="">ACCESORIES</a></li>
+                                <li><a href="">Skirts</a></li>
+                            </ul>
+                        </li>
+                        <li class="cartegory-left-li"><a href="">Collection</a></li>
+
+                    </ul>
+                </div>
+                <div class="cartegory-right">
+                    <div class="cartegory-right-top-item">
+                        <p>Shirts</p>
+                    </div>
+
+                    <div class="cartegory-right-top-item">
+                        <button><span>Filt </span><i><i class="fa-solid fa-arrow-down"></i></i></button>
+                    </div>
+
+                    <div class="cartegory-right-top-item">
+                        <select name="" id="">
+                            <option value="">Arrange</option>
+                            <option value="">From highest to lowest</option>
+                            <option value="">From lowest to highest</option>
+
+                        </select>
+                    </div>
+                    <div class="cartegory-right-content row">
+                        <div class="cartegory-right-content-item">
+                           
+                            <a href="./product.html"> <img src="img/sp1.png" alt=""></a>
+                            <h1>BROWN RELAXED SHORT SLEEVE SHIRT</h1>
+                            <p>590.000<sup>đ</sup></p>
+                        </div>
+                        <div class="cartegory-right-content-item">
+                            <img src="img/sp3.png" alt="">
+                            <h1>BLACK RELAXED SHORT SLEEVE SHIRT</h1>
+                            <p>590.000<sup>đ</sup></p>
+                        </div>
+                        <div class="cartegory-right-content-item">
+                            <img src="img/sp4.png" alt="">
+                            <h1>BURGUNDY TAILORED FIT BAMBOO SHIRT</h1>
+                            <p>590.000<sup>đ</sup></p>
+                        </div>
+                        <div class="cartegory-right-content-item">
+                            <img src="img/sp5.png" alt="">
+                            <h1>CREAM SEMI-SHEER LACE SHIRT</h1>
+                            <p>590.000<sup>đ</sup></p>
+                        </div>
+                        <div class="cartegory-right-content-item">
+                            <img src="img/sp7.png" alt="">
+                            <h1>LIGHT GREY RELAXED SHORT SLEEVE SHIRT</h1>
+                            <p>590.000<sup>đ</sup></p>
+                        </div>
+                        <div class="cartegory-right-content-item">
+                            <img src="img/sp8.png" alt="">
+                            <h1>BLACK TAILORED FIT BAMBOO SHIRT</h1>
+                            <p>590.000<sup>đ</sup></p>
+                        </div>
+                    </div>
+
+                    <div class="cartegory-right-bottom row">
+                        <div class="cartegory-right-bottom-items">
+                            <p>In 1 <span>|</span>4 page product</p>
+                        </div>
+                        <div class="cartegory-right-bottom-items">
+                            <p><span>&#171;</span> 1 2 3 4 5 <span>&#187;</span></p>
+                        </div>
+                    </div>    
+                </div>
+ 
+                
+            </div>
+        </div>
+</section>
+
+
+
+
+
+
+
+
+
+<!-- -------------------------------FOOTER------------------------------ -->
+<footer>
+    <div class="left-footer">
+        <li><input placeholder="Email Address" type="text"></li>
+        <button>Subcribe</button>
+    </div>
+    <div class="right-footer">
+        <li><a href=""></a>CUSTOMER CARE</li>
+        <li><a href=""></a>SIZE CHART</li>
+        <li><a href=""></a>LEGAL</li>
+        <li><a href=""></a>FACEBOOK</li>
+        <li><a href=""></a>INSTARGRAM</li>
+        <li><a href=""></a>#ADDRESS</li>
+    </div>
+</footer>
+
+
+</body>
+<script src="./js/script.js"></script>
+</html> 
+

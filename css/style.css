@@ -1,0 +1,1107 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* ác phần tử con phản hồi khi không đủ không gian trên một hàng. Nếu không đủ không gian, chúng sẽ tự động "wrap" (xếp sang hàng mới) để không bị tràn ra ngoài. */
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+li{
+    /* Xóa bo các cham dau dong cua li; */
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+
+header {
+    background-color: white;
+    width: 100%;
+    z-index: 1000;
+    /* Làm cái thành phần con 1 của header đặt ngang cạnh nhau */
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 50px;
+    height: 70px;
+    /* Chinh các thành phần con 1 của header căn trên dưới */
+    align-items: center;
+    
+}
+header.sticky{
+    background-color: rgb(171, 158, 134);
+}
+
+/* Cố định header khi cuộn  */
+
+header.scrolled {
+    position: fixed;
+    top: 0;
+    animation: slideDown 0.3s ease-in-out; /* Thêm hiệu ứng khi header xuất hiện */
+}
+
+/* Đặt hiệu ứng cho khi header xuất hiện */
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+.logo {
+    flex:1
+}
+.logo img {
+    cursor: pointer;
+}
+
+.menu {
+    display: flex;
+    position: relative; 
+}
+
+.menu > li {
+    padding: 0 40px;
+    position: relative;
+    list-style: none; /* Loại bỏ dấu đầu dòng của danh sách */
+    cursor: pointer;
+}
+
+
+.menu > li > a {
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block; /* Thêm dòng này để có thể sử dụng ::after */
+    padding-bottom: 5px; /* Thêm dòng này để tránh sự thay đổi của thanh dưới khi hover */
+}
+
+.menu > li > a::after {
+    content: "";
+    height: 5px;
+    
+    width: 0;
+    background-color: tomato;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    transition: all 0.5s ease-in-out;
+}
+
+.menu > li > a:hover::after {
+    width: 50%;
+    transform: translateX(100%);
+}
+
+.menu .sub-menu {
+    background-color: white;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    width: 150px;
+    border: 1px solid black;
+    left: 0;
+    top: 100%; 
+    z-index: 2;
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s; /* Thêm transition để tạo hiệu ứng mượt mà */
+    transform: translateY(-10px); /* Dịch chuyển submenu lên trên để ẩn đi */
+}
+.dark .menu .sub-menu{
+    background-color: black ;
+}
+
+.menu > li:hover .sub-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Hiển thị submenu bằng cách dịch chuyển xuống */
+    border-color: #dbd2d2;
+}
+
+.menu .sub-menu > li {
+    padding: 8px 12px;
+    transition: background-color 0.3s, color 0.3s; /* Hiệu ứng mượt mà khi hover */
+}
+
+.menu .sub-menu > li:hover {
+    background-color: #3f3e3e;
+    color: black;
+    cursor: pointer;
+}
+
+
+
+.right-menu {
+    flex: 1;
+    /* //Chinh cac thuoc tinh li(con cua right-menu) cung 1 dong */
+
+    display: flex;
+    /* Chỉnh thanh kia ve phan ben phải */
+    justify-content:right;
+}
+.right-menu > li {
+    padding: 0 12px;
+    cursor: pointer;
+}
+.right-menu > li:first-child input {
+    /* Thiết lập độ rộng của input trong phần tử <li> đầu tiên của .right-menu thành 100% chiều rộng của phần tử <li>. */
+    width: 100%;
+    /* xác định vị trí của các phần tử con bên trong input dựa trên vị trí của nó. */
+    position: relative;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.right-menu > li:first-child i {
+/* định vị tuyệt đối theo phần tử cha gần nhất có thuộc tính position */
+    position: absolute;
+
+}
+
+
+.right-menu #switch-mode {
+    outline: none;
+    border:none;
+    background: none;
+    cursor: pointer;
+}
+.right-menu #switch-mode {
+    font-size: 16px;
+}
+
+.dark .right-menu-mobile,
+.dark .right-menu-mobile i,
+.dark .right-menu-mobile p{
+    background-color: #3f3e3e;
+    color: white;
+}
+.dark .right-menu-mobile .rm-intem button{
+    outline: none;
+    border:none;
+    background: none;
+    cursor: pointer;
+}
+
+
+
+#Slider{
+    padding-bottom: 30px;
+    border-bottom: 2px solid black;
+        /* Xóa thanh ngang trượt slider */
+        overflow: hidden;
+        z-index: 1; /* Thiết lập z-index cho Slider */
+}
+
+.aspect-ratio-169 {
+    display: block;
+    position: relative;
+    padding-top: 56.25%;
+    transition: 0.3s ;
+
+  }
+  
+  .aspect-ratio-169 img {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+.dot-container{
+    position: absolute;
+    height: 30px;
+    width: 100%;
+    display: flex;
+    /* //Chinh cac cuc tuong ung ve giua khung hinh  */
+    justify-content: center;
+}
+.dot{
+    height:16px ;
+    width: 16px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 0 5px;
+    /* Thay doi con tro chuot */
+    cursor: pointer;
+}
+.dot.active{
+    background-color: black;
+}
+
+footer {
+    padding: 30px 0;
+    display: flex;
+}
+.left-footer{
+    flex:1;
+    display: flex ;
+    padding-left: 30px;
+}
+.left-footer input {
+    
+    width: 300px;
+    padding: 5px 10px;
+    height: 35px;
+    border: none;
+    float: left;
+    letter-spacing: 1px;
+    color: #000;
+    outline: none;
+    font-family: Futura-Book;
+    background: none;
+    border-bottom: 1px solid #ccc;
+}
+
+.right-footer{
+    flex:1;
+    display: flex;
+    justify-content: flex-end;
+     /* Cho phép các li chuyển xuống dòng khi không đủ không gian */
+    flex-wrap: wrap; 
+}
+
+.right-footer li{
+    margin: 10px;
+    cursor: pointer;
+}
+
+
+
+
+/* MObile nav */
+.nav-bar-btn{
+    display: none;
+}
+
+.nav-overlay{
+    display: none;
+    z-index: 2;
+    /* phu kin man hinh */
+    position: fixed ; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    animation: fadeIn linear 0.5s;
+}
+
+.right-menu-mobile{
+    z-index: 3;
+    position: fixed ;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 320px;
+    max-width: 100%;
+    background-color: white;
+    transform: translateX(-100%);
+    transition: transform linear 0.3s, opacity linear 0.3s;
+    opacity: 0;
+}
+.right-menu-mobile input{
+      /* Thiết lập độ rộng của input trong phần tử <li> đầu tiên của .right-menu thành 100% chiều rộng của phần tử <li>. */
+      width: 60%;
+      /* xác định vị trí của các phần tử con bên trong input dựa trên vị trí của nó. */
+      position: relative;
+      border: none;
+      border-bottom: 1px solid black;
+}
+.rm-intem{
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Futura-Book;
+    font-size: 1rem;
+    color: #000;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: 0.3s;
+
+}
+.nav-input:checked ~.nav-overlay{
+    display: block;
+}
+.nav-input:checked ~.right-menu-mobile{
+    transform: translateX(0%);
+    opacity: 1;
+}
+.logo-mobile{
+    display: none;
+}
+
+
+@keyframes fadeIn{
+    from { opacity:0;
+    }
+    to { opacity:1;
+    }
+}
+
+
+
+
+/* -------------------CARTEGORY------------------------------------------------ */
+.cartegory {
+    padding: 50px;
+}
+
+.cartegory-top {
+    margin-bottom: 50px;
+    font-family: var(--main-text-font);
+    /* font-size: 12px; */
+    display: flex;
+    align-items: center;
+}
+
+.cartegory-top p {
+    margin: 0 12px;
+}
+
+.cartegory-left {
+    width: 20%;
+}
+.cartegory-left ul li{
+    padding: 12px 0;
+}
+.cartegory-left ul li>a{
+    font-size: 16px;
+    font-weight: bold;
+}
+.cartegory-left ul li ul li {
+    padding-left: 10px;
+}
+.cartegory-left-li ul{
+    display: none;
+}
+.cartegory-left-li:hover ul{
+    display: block;
+    font-weight: normal;
+}
+.cartegory-left-li:hover ul li a {
+    font-weight: normal;
+}
+
+
+
+
+.cartegory-right {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap; /* Thêm thuộc tính này để các phần tử con tự động wrap khi không đủ không gian */
+}
+
+.cartegory-right-top-item {
+    flex: 1;
+    padding: 0 12px;
+    font-family: var(--main-text-font);
+}
+
+.cartegory-right-top-item:first-child {
+    flex: 2;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.cartegory-right-top-item button,
+.cartegory-right-top-item select {
+    width: 100%;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border: 1px solid #dddd;
+    cursor: pointer;
+}
+.cartegory-right-content {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px; /* Tạo khoảng cách giữa các phần tử con */
+}
+
+.cartegory-right-content-item {
+    flex: 0 1 calc(25% - 12px); /* Xác định kích thước cố định cho mỗi phần tử */
+    text-align: center;
+    padding: 12px 0;
+    box-sizing: border-box; 
+}
+
+.cartegory-right-content-item h1 {
+    font-size: 11px;
+    margin-top: 6px;
+    color: #333333;
+}
+
+.cartegory-right-content-item img {
+    width: 100%;
+}
+.cartegory-right-content-item:hover{
+    border: 2px solid #dbd2d2 ;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.cartegory-right-bottom{
+    justify-content: space-between;
+    margin: 30px 0 20px;
+    /* Phải chỉnh chiều ngang dài thì ms có khoảng cách để justify-content: space-between; */
+    width: 100%; 
+}
+
+/* ------------------------PRODUCT------------------------- */
+.product{
+    padding: 100px ;
+}
+.product-top{
+    margin-bottom: 30px;
+}
+.product-top p{
+    margin: 0 12px;
+    /* font-size: 12px; */
+}
+.product-content-left{
+    width: 50%;
+}
+.product-content-left-big-img{
+    /* CSS cho cái ảnh to chiếm 80% cái left */
+    width: 80%; 
+    /* Chỗ này k thể để là margin vì nó sẽ tràn (80+20)%+20px => phải để là padding */
+    /* margin-right: 20px; */
+    padding-right: 20px;
+}
+.product-content-left-big-img img{
+    /* CSS cho cái ảnh chiếm 100% của 80% trên */
+    width: 100%;
+}
+
+
+.product-content-left-big-img {
+    position: relative;
+    overflow: hidden;
+    cursor: zoom-in;
+}
+.product-content-left-big-img:hover{
+    border: 2px solid #dbd2d2 ;
+    transition: all 0.3s ease-in-out;
+}
+
+.product-content-left-big-img img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product-content-left-big-img img.zoomed {
+    transform: scale(1.5); /* Adjust the scale factor as needed */
+}
+
+
+.product-content-left-small-img{
+    /* CSS cho cái ảnh nhỏ chiếm 20% cái left */
+    width: 20%;
+}
+.product-content-left-small-img img{
+     /* CSS cho cái ảnh chiếm 100% của 20% trên */
+    width: 100%;
+}
+
+.product-content-right{
+    width: 50%;
+    padding-left: 20px;
+}
+.circle-black {
+    width: 20px;
+    height: 20px;
+    background-color: black;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.circle-brown {
+    width: 20px;
+    height: 20px;
+    background-color: brown;
+    border-radius: 50%;
+    margin-right: 10px;
+
+}
+
+.circle-white {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    border: 2px solid #000;
+    margin-right: 10px;
+
+}
+.product-content-right-product-color p{
+    margin-right: 100px;
+}
+.size span{
+    /* Tạo khối vuông */
+    display: inline-block; 
+    padding: 3px 6px;
+    border: 1px solid #dddd;
+    cursor: pointer;
+    /* font-size: 12px; */
+} 
+.quantity{
+    display: flex;
+
+}
+.quantity input{
+    width: 35px;
+    margin-left: 3px;
+}
+
+.product-content-right-product-button button {
+    width: 80%;
+    display: block;
+    margin: 0 auto; /* Căn giữa nút theo chiều ngang */
+    padding: 10px 20px; /* Điều chỉnh khoảng cách bên trong nút */
+    border: none; /* Loại bỏ viền */
+    border-radius: 5px; /* Bo tròn góc nút */
+    background-color: #f1f1f1; /* Màu nền của nút */
+    color: #333; /* Màu chữ của nút */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* Hiệu ứng chuyển đổi màu khi hover */
+}
+
+.product-content-right-product-button button:hover {
+    background-color: #333; /* Màu nền khi hover */
+    color: #fff; /* Màu chữ khi hover */
+}
+
+/* ---------------------Recommend-------------- */
+.product-related{
+    padding: 100px;
+    margin-bottom: 50px;
+}
+
+.product-related-item{
+    width: 20%;
+    text-align: center;
+    padding: 0 6px;
+}
+
+.product-related-item img{
+    width: 100%;
+}
+
+.product-related-item h1{
+    font-size: 11px;
+    margin-top: 6px;
+}
+
+/* ---------------------Cart-------------- */
+.color{
+    display: inline-block;
+    border: 1px solid #ccc;
+    width: 25px;
+    height: 25px;
+    margin-right: 5px;
+    cursor: pointer;
+    font-size: 0;
+    border-radius: 50%;
+}
+
+.cart{
+    padding: 100px ;
+}
+
+.cart-top-wrap{
+    display: flex;
+    justify-content: center ;
+}
+
+.cart-top{
+    height: 2px;
+    width: 70%;
+    background-color: #dddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px 0 100px;
+}
+
+.cart-top-item{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #a29f9f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.cart-top-item i{
+    color: #dddddd;
+}
+
+.cart-top-cart{
+    border: 1px solid black ;
+}
+.cart-top-cart i{
+    color: black;
+}
+
+.cart-content-left{
+    flex: 2;
+    padding-right: 12px;
+}
+.cart-content-left table{
+    width: 100%;
+    text-align: center;
+}
+.cart-content-left table th{
+    padding-bottom: 30px;
+    /* font-size: 12px; */
+    text-transform: uppercase;
+    color: #333;
+    border-collapse: collapse ;
+    border-bottom: 2px solid #dddddd;
+}
+.cart-content-left table p{
+    /* font-size: 12px; */
+    /* font-size: 12px; */
+    color: #333;
+}
+.cart-content-left table input{
+    width: 30px;
+}
+.cart-content-left table span{
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #dddddd;
+    cursor: pointer;
+}
+
+.cart-content-left table td{
+    padding: 20px 0;
+    border-bottom: 2px solid #dddddd;
+}
+.cart-content-left td:first-child img{
+    width: 150px;
+}
+.cart-content-left td:nth-child(2){
+    max-width: 150px;
+}
+
+.cart-content-right{
+    flex: 1;
+    padding-left: 12px;
+    border-left: 2px solid #dddddd;
+}
+.cart-content-right table{
+    width: 100%;
+}
+.cart-content-right table th{
+    padding-bottom: 30px;
+    color: #333;
+    border-collapse: collapse ;
+    border-bottom: 2px solid #dddddd;
+}
+.cart-content-right table td{
+    color: #333;
+    padding: 6px 0;
+}
+.cart-content-right tr:nth-child(4) td{
+    border-bottom: 2px solid #dddddd;
+}
+.cart-content-right tr td:last-child {
+    text-align: right;
+}
+.cart-content-right-text{
+    margin: 20px 0;
+    text-align: center;
+}
+.cart-content-right-text p{
+    color: #333;
+}
+.cart-content-right-button{
+    text-align: center;
+    align-items: center;
+}
+.cart-content-right-button button{
+    padding: 0 18px;
+    height: 35px;
+    cursor: pointer;
+}
+.cart-content-right-button button:first-child{
+    background-color: white;
+    border: 1px solid black;
+    margin-right: 20px;
+}
+.cart-content-right-button button:first-child:hover{
+    background-color: #dddddd;
+}
+.cart-content-right-button button:last-child{
+    background-color: black;
+    color: white ;
+    border: none;
+}
+.cart-content-right-button button:last-child:hover{
+    background-color: #dddddd;
+    color: black;
+}
+.cart-content-right-dangnhap{
+    margin-top: 20px;
+}
+.cart-content-right-dangnhap p{
+    /* font-size: 12px; */
+    font-weight: bold;
+}
+
+
+/* -- ---------------- -------Delivery---------------- -- */
+
+
+.delivery{
+    padding: 100px ;
+}
+
+.delivery-top-wrap{
+    display: flex;
+    justify-content: center ;
+    align-items: center ;
+}
+
+.delivery-top{
+    height: 2px;
+    width: 70%;
+    background-color: #dddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px 0 100px;
+}
+
+.delivery-top-item{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #a29f9f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.delivery-top-item i{
+    color: #dddddd;
+}
+
+.delivery-top-adress{
+    border: 1px solid black ;
+}
+.delivery-top-adress i{
+    color: black;
+}
+
+.delivery-content-left{
+    flex: 2;
+    width: 60%;
+    padding-right: 12px;
+}
+.delivery-content-left label{
+    /* font-size: 12px; */
+    margin-bottom: 6px;
+    display: block;
+}
+.delivery-content-left>p{
+    font-weight: bold;
+}
+.delivery-content-left-dangnhap{
+    margin-top: 12px;
+}
+.delivery-content-left-dangnhap i{
+    margin-right: 12px;
+}
+.delivery-content-left-khachvanglai{
+    margin: 12px 0;
+}
+.delivery-content-left-khachvanglai input{
+    margin-right: 12px;
+}
+.delivery-content-left-dangky{
+    margin-bottom: 30px;
+}
+.delivery-content-left-dangky input{
+    margin-right: 12px;
+}
+.delivery-content-left-input-top{
+    justify-content: space-between;
+}
+.delivery-content-left-input-top-item{
+    width: calc(50% - 12px) ;
+}
+.delivery-content-left-input-top-item input{
+    width: 100%;
+    height: 35px;
+    border: 1px solid #dddddd;
+    padding-left: 6px ;
+}
+
+.delivery-content-left-input-bottom input{
+    width: 100%;
+    height: 35px;
+    border: 1px solid #dddddd;
+    padding-left: 6px ;
+}
+.delivery-content-left-button p {
+    display: inline-block;
+    /* font-size: 12px; */
+}
+.delivery-content-left-button span{
+    margin-right: 12px;
+}
+.delivery-content-left-button {
+    justify-content: space-between;
+    padding-top: 20px;
+}
+.delivery-content-left-button button{
+    height: 35px;
+    border: 2px solid black;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all 0.3 ease;
+}
+.delivery-content-left-button button:hover{
+    background-color: black;
+    color: white;
+}
+.dark .delivery-content-left-button a{
+    color: white;
+}
+.delivery-content-right{
+    flex: 1;
+}
+.delivery-content-right{
+    width: 40%;
+    padding-left: 12px;
+    border-left: 2px solid #dddddd;
+    height: auto;
+}
+.delivery-content-right table {
+    width: 100%;
+    text-align: center;
+
+}
+
+.delivery-content-right table tr th:first-child{
+    text-align: left;
+}
+
+.delivery-content-right table tr th{
+    padding-bottom: 12px;
+    border-bottom: 1px solid #dddddd;
+
+}
+.delivery-content-right table tr th:last-child{
+    text-align: right;
+
+}
+.delivery-content-right table tr td{
+    padding: 6px 0;
+}
+.delivery-content-right table tr:nth-child(4){
+    border-top: 2px solid #dddddd;
+}
+.delivery-content-right table tr td:last-child{
+    text-align: right;
+}
+.delivery-content-right table tr td:first-child{
+    text-align: left;
+}
+
+
+/* -- ---------------- -------Payment---------------- -- */
+
+.payment{
+    padding: 100px ;
+}
+
+.payment-top-wrap{
+    display: flex;
+    justify-content: center ;
+    align-items: center ;
+}
+.payment-top{
+    height: 2px;
+    width: 70%;
+    background-color: #dddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px 0 100px;
+}
+.payment-top-item{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #a29f9f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+.payment-top-item i{
+    color: #dddddd;
+}
+
+.payment-top-payment{
+    border: 1px solid black ;
+}
+.payment-top-payment i{
+    color: black;
+}
+.payment-content-left{
+    width: 60%;
+}
+
+.payment-content-right{
+    width: 40%;
+    border-left: 2px solid #ddd;
+    padding-left: 12px;
+}
+
+.payment-content-right table{
+    width: 100%;
+}
+.payment-content-right table th{
+    padding-bottom: 30px;
+    color: #333;
+    border-collapse: collapse ;
+    border-bottom: 2px solid #dddddd;
+}
+.payment-content-right table td{
+    color: #333;
+    padding: 6px 0;
+}
+.payment-content-right tr:nth-child(4) td{
+    border-bottom: 2px solid #dddddd;
+}
+.payment-content-right tr td:last-child {
+    text-align: right;
+}
+.payment-content-right-text{
+    margin: 20px 0;
+    text-align: center;
+}
+.payment-content-right-text p{
+    color: #333;
+}
+.payment-content-right-button{
+    align-items: center;
+    justify-content: space-between;
+}
+.payment-content-right-button button{
+    padding: 0 18px;
+    height: 35px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.payment-content-right-button button:first-child{
+    background-color: white;
+    border: 1px solid black;
+    margin-right: 20px;
+}
+.payment-content-right-button button:first-child:hover{
+    background-color: #dddddd;
+}
+.payment-content-right-button button:last-child{
+    background-color: black;
+    color: white ;
+    border: none;
+}
+.payment-content-right-button button:last-child:hover{
+    background-color: #dddddd;
+    color: black;
+}
+.payment-content-right-dangnhap{
+    margin-top: 20px;
+}
+.payment-content-right-dangnhap p{
+    /* font-size: 12px;
+     */
+    font-weight: bold;
+}
+
+.payment-content-right-payment{
+    margin-top: 50px;
+    align-items: center;
+    text-align: center;
+}
+.payment-content-right-payment button{
+    height: 35px;
+    padding: 0 20px;
+    color: black ;
+    cursor: pointer;
+    transition: 0.3s;
+    border: 2px solid black;
+}
+.payment-content-right-payment button:hover{
+    background-color: black;
+    color: white;
+}
+
+/* -----------------LOGIN---------------------- */
+ .login-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            margin-top: 50px;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .login-container button:hover {
+            background-color: #dbd2d2;
+            color: black;
+        }
+.dk-login{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+}
+.dk-login a{
+    color: red;
+}
+.login-container:hover{
+    border: 2px solid #dbd2d2 ;
+    transition: all 0.3s ease-in-out;
+}

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>GioHaNoi</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- REPONSIVE -->
+    <style>
+        @media only screen and (max-width: 400px) {
+            .menu{
+                display: none;
+            }
+            .right-menu{
+                display: none;
+            }
+            .logo img{
+                margin-left: 70px;
+            }
+        }
+        @media only screen and (max-width: 768px) {
+    header {
+        padding: 12px 20px;
+    }
+
+    .menu > li {
+        padding: 10px;
+    }
+
+    .right-menu > li {
+        padding: 0 10px;
+    }
+
+    .left-footer input {
+        width: 100%;
+    }
+    footer{
+        display: block;
+    }
+    .right-footer{
+        justify-content: left;
+    }
+    .nav-bar-btn{
+        display: block;
+    }
+    .logo,
+    .menu,
+    .right-menu{
+        display: none;
+    }
+    .logo-mobile{
+        display: block;
+    }
+    .payment{
+        padding: 0px;
+    }
+    .payment-content {
+        flex-direction: column-reverse;
+    }
+    .payment-content-left,
+    .payment-content-right{
+        width: 100%;
+    }
+    .payment-content-left > div {
+        text-align: center;
+        margin: auto;
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    header {
+        padding: 12px 30px;
+    }
+
+    .menu > li {
+        padding: 12px 20px;
+    }
+
+    .right-menu > li {
+        padding: 0 15px;
+    }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+    header {
+        padding: 12px 40px;
+    }
+
+    .menu > li {
+        padding: 15px 25px;
+    }
+
+    .right-menu > li {
+        padding: 0 20px;
+    }
+}
+
+    </style>
+    
+   <!-- DARK-MODE  -->
+   <style>
+    /* Existing styles for dark mode */
+    .dark {
+      background-color: black;
+      color: white;
+  }
+
+  .dark header {
+      background-color: #3f3e3e;
+  }
+
+  .dark .right-menu #switch-mode {
+      color: white;
+  }
+
+  /* Updated styles for links inside <a> tags in dark mode */
+  .dark header .menu > li > a,
+  .dark header .menu .sub-menu li a {
+      color: white;
+  }
+  .dark #Slider .dot-container .dot.active {
+      background-color: gray !important;
+  }
+  .dark footer .left-footer button{
+      background-color: black ;
+      color: white;
+  }
+  .dark header .right-menu input {
+      background-color: #3f3e3e;
+      color: white;
+  }
+  .dark .payment-content-right table th,
+  .dark .payment-content-right table td,
+  .dark .payment-content-right p {
+    color: white;
+  }
+  .dark .payment-content-right-button button {
+    border: 1px solid white;
+  }
+  .dark .payment-content-right-button button:hover {
+    background-color:#3f3e3e ;
+  }
+  .dark .payment-content-right-payment button:hover {
+    background-color:#3f3e3e ;
+
+  }
+</style>
+</head>
+<body>
+    <header >
+        <!-- ----------------MOBILE/TABLET---------------- -->
+        <label for="nav-mobile-input" class="nav-bar-btn">
+            <li><i class="fa-solid fa-bars"></i></li>
+        </label>
+
+        <input type="checkbox" name="" class="nav-input" id="nav-mobile-input" hidden>
+        <label for="nav-mobile-input" class="nav-overlay"></label>
+        
+        <div class="right-menu-mobile">
+            <li class="rm-intem"><input placeholder="Tìm kiêm" type="text"><i class="fa-solid fa-magnifying-glass"></i></li>
+            
+            <!-- headphone -->
+            <li class="rm-intem"><i class="icon-ic_headphones"></i></li>
+            <!-- user -->
+            <li class="rm-intem"><i class="fa-regular fa-user"></i></li>
+            <!-- shopping-bag -->
+            <li class="rm-intem"><i class="fa-solid fa-bag-shopping"></i></li>
+        </div>
+        <div class="logo-mobile">
+            <img src="./img/1.png" style="height: 64px;">
+        </div>
+        
+
+
+
+
+        <!-- ------------------LAPTOP---------------- -->
+        <!-- Dung flex chia cai o giua lam 3 con 2 cái trái phải mỗi cái 1 -->
+        <div class="logo">
+            <a href="./index.html"><img src="./img/1.png" style="height: 64px;"></a>
+
+        </div>
+
+        <div class="menu row">
+                <li><a href="./category.html">Men</a>
+                    <ul class="sub-menu">
+                        <li><a href="">Shirts</a></li>
+                        <li><a href="">Jacket&Coat</a></li>
+                        <li><a href="">Trousers</a></li>
+                        <li><a href="">TOP</a></li>
+                        <li><a href=""> ACCESORIES</a></li>
+
+                    </ul>
+                
+                
+                </li>
+                <li><a href="#">Women</a>
+                    <ul class="sub-menu">
+                        <li><a href="">Skirts</a></li>
+                        <li><a href="">Shirts</a></li>
+                        <li><a href="">Jacket&Coat</a></li>
+                        <li><a href="">Trousers</a></li>
+                        <li><a href="">TOP</a></li>
+                        <li><a href=""> ACCESORIES</a></li>
+
+
+                    </ul>
+                </li>
+                <li><a href="#">Collection</a>
+                    <ul class="sub-menu">
+                        <li ><a href="">Spring Summer - 2024</a></li>
+                        <li ><a href="">Fall Winter-2023</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Information</a></li>
+
+        </div>
+
+        <div class="right-menu">
+            <li><input placeholder="Tìm kiêm" type="text"><i class="fa-solid fa-magnifying-glass"></i></li>
+            
+            <!-- headphone -->
+            <li><i class="icon-ic_headphones"></i></li>
+            <!-- user -->
+            <li><i class="fa-regular fa-user"></i></li>
+            <!-- shopping-bag -->
+            <li><i class="fa-solid fa-bag-shopping"></i></li>
+            <button id="switch-mode" ><i class="fa-solid fa-moon"></i></button>
+        </div>
+
+        
+    </header>
+<!-- ---------------- -------HEADER---------------- -->
+
+<!-- -------------------Payment ---------------- -->
+<section class="payment">
+    <div class="container">
+        <div class="payment-top-wrap">
+            <div class="payment-top">
+                <div class="payment-top-cart payment-top-item">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+                <div class="payment-top-adress payment-top-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div class="payment-top-payment payment-top-item">
+                    <i class="fa-solid fa-money-check-dollar"></i>
+                </div>
+                <div class="payment-top-check payment-top-item">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="payment-content row">
+            <div class="payment-content-left">
+                <div class="payment-content-left-method-delivery" style="margin-bottom: 5px;"> 
+                    <p style="font-weight: bold;"> Delivery method</p>
+                    <div class="payment-content-left-method-delivery-item">
+                        <input type="radio" id="3">
+                        <label for="3"> Express delivery</label>
+                    </div>
+                </div>
+                <div class="payment-content-left-method-payment" style="margin-bottom: 5px;">
+                    <p style="font-weight: bold;">Payment methods</p>
+                    <p> All transactions are secure and encrypted</p>
+                    <div class="payment-content-left-method-payment-item">
+                        <input type="radio" name="method-payment" id="1">
+                        <label for="1">Pay by credit card</label>
+                    </div>
+                    <div class="payment-content-left-method-payment-item-img">
+                        <img src="./img/visa.png" alt="">
+                    </div>
+                    <div class="payment-content-left-method-payment-item">
+                        <input type="radio" name="method-payment" id="2">
+                        <label for="2"> Pay by ATM card</label>
+                    </div>
+                    <div class="payment-content-left-method-payment-item-img">
+                        <img src="./img/nganhang.png" alt="" style="width: 60%;">
+                    </div>
+                    <div class="payment-content-left-method-payment-item">
+                        <input type="radio" name="method-payment" id="4">
+                        <label for="4"> Pay with MOMO</label>
+                    </div>
+                    <div class="payment-content-left-method-payment-item-img">
+                        <img src="./img/momo.png" alt="" style="width: 80px;">
+                    </div>
+                    <div class="payment-content-left-method-payment-item">
+                        <input type="radio" name="method-payment" id="5">
+                        <label for="5">Payment in cash (COD)</label>
+                    </div>
+                </div>
+                <div class="payment-content-right-button">
+                    <input type="text" placeholder="Mã giảm giá">
+                    <button><i class="fa-solid fa-check"></i></button>
+                </div>
+            </div>
+            <div class="payment-content-right">
+                <table>
+                    <tr>
+                        <th colspan="2">Total</th>
+                    </tr>
+                    <tr>
+                        <td>Total product</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>Total money</td>
+                        <td><p>590.000 <sup>đ</sup></p></td>
+                    </tr>
+                    <tr>
+                        <td>Pre-check</td>
+                        <td style="font-weight: bold;"><p>590.000 <sub>đ</sub></p></td>
+                    </tr>
+                </table>
+                <div class="payment-content-right-text">
+                    <p>You will receive free shipping when the order is over 2,000,000</p>
+                </div>
+                <div class="payment-content-right-dangnhap">
+                    <p>Account</p>
+                    <p style="margin-top: 20px;">Please <a href="./login.html" style="color: red;">Login</a>to your account to accumulate membership card points</p>
+                </div>
+                
+            </div>
+
+        </div>
+        <div class="payment-content-right-payment">
+            <button> Continue payment</button>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- -------------------------------------Footer-------------------------- -->
+<footer>
+    <div class="left-footer">
+        <li><input placeholder="Email Address" type="text"></li>
+        <button>Subcribe</button>
+    </div>
+    <div class="right-footer">
+        <li><a href=""></a>CUSTOMER CARE</li>
+        <li><a href=""></a>SIZE CHART</li>
+        <li><a href=""></a>LEGAL</li>
+        <li><a href=""></a>FACEBOOK</li>
+        <li><a href=""></a>INSTARGRAM</li>
+        <li><a href=""></a>#ADDRESS</li>
+    </div>
+</footer>
+
+
+</body>
+<script src="./js/script.js"></script>
+</html> 

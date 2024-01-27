@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>GioHaNoi</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- REPONSIVE -->
+    <style>
+        @media only screen and (max-width: 450px) {
+            .menu{
+                display: none;
+            }
+            .right-menu{
+                display: none;
+            }
+            .logo img{
+                margin-left: 70px;
+            }
+            .product-content{
+                flex-direction: column;
+            }
+            footer{
+                flex-direction: column;
+            }
+        }
+        @media only screen and (max-width: 768px) {
+            .product-content-left,
+            .product-content-left-big-img,
+            .product-content-right {
+                width: 100%;
+                padding: 0;
+            }
+            .product-content-left-small-img{
+                display: none;
+            }
+
+            .product-content-left-big-img,
+            .product-content-left-small-img {
+                padding-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .product-content-left-small-img img {
+                margin-bottom: 10px;
+            }
+            .product-content-right{
+                text-align: center;
+            }
+            .product{
+                padding: 0px;
+            }
+            .product-related{
+                padding: 0px;
+            }
+            .nav-bar-btn{
+        display: block;
+    }
+    .logo,
+    .menu,
+    .right-menu{
+        display: none;
+    }
+    .logo-mobile{
+        display: block;
+    }
+        }
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    header {
+        padding: 12px 30px;
+    }
+
+    .menu > li {
+        padding: 12px 20px;
+    }
+
+    .right-menu > li {
+        padding: 0 15px;
+    }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+    header {
+        padding: 12px 40px;
+    }
+
+    .menu > li {
+        padding: 15px 25px;
+    }
+
+    .right-menu > li {
+        padding: 0 20px;
+    }
+}
+
+    </style>
+
+       <!-- DARK-MODE  -->
+       <style>
+        /* Existing styles for dark mode */
+        .dark {
+          background-color: black;
+          color: white;
+      }
+
+      .dark header {
+          background-color: #3f3e3e;
+      }
+
+      .dark .right-menu #switch-mode {
+          color: white;
+      }
+
+      /* Updated styles for links inside <a> tags in dark mode */
+      .dark header .menu > li > a,
+      .dark header .menu .sub-menu li a {
+          color: white;
+      }
+      .dark #Slider .dot-container .dot.active {
+          background-color: gray !important;
+      }
+      .dark footer .left-footer button{
+          background-color: black ;
+          color: white;
+      }
+      .dark header .right-menu input {
+          background-color: #3f3e3e;
+          color: white;
+      }
+  </style>
+</head>
+<body class="">
+    <header >
+        <!-- ----------------MOBILE/TABLET---------------- -->
+        <label for="nav-mobile-input" class="nav-bar-btn">
+            <li><i class="fa-solid fa-bars"></i></li>
+        </label>
+
+        <input type="checkbox" name="" class="nav-input" id="nav-mobile-input" hidden>
+        <label for="nav-mobile-input" class="nav-overlay"></label>
+        
+        <div class="right-menu-mobile">
+            <li class="rm-intem"><input placeholder="Search" type="text"><i class="fa-solid fa-magnifying-glass"></i></li>
+            <!-- user -->
+            <li class="rm-intem"><i class="fa-regular fa-user"></i> <p>User</p></li>
+            <!-- shopping-bag -->
+            <li class="rm-intem"><i class="fa-solid fa-bag-shopping"></i><p>Cart</p></li>
+            <li class="rm-intem"><i class="fa-solid fa-right-from-bracket"></i><p>Log out</p></li>
+        </div>
+        <div class="logo-mobile">
+            <img src="./img/1.png" style="height: 64px;">
+        </div>
+        
+
+
+
+
+        <!-- ------------------LAPTOP---------------- -->
+        <!-- Dung flex chia cai o giua lam 3 con 2 cái trái phải mỗi cái 1 -->
+        <div class="logo">
+            <img src="./img/1.png" style="height: 64px;">
+        </div>
+
+        <div class="menu row">
+                <li><a href="./category.html">Men</a>
+                    <ul class="sub-menu">
+                        <li><a href="">Shirts</a></li>
+                        <li><a href="">Jacket&Coat</a></li>
+                        <li><a href="">Trousers</a></li>
+                        <li><a href="">TOP</a></li>
+                        <li><a href=""> ACCESORIES</a></li>
+
+                    </ul>
+                
+                
+                </li>
+                <li><a href="#">Women</a>
+                    <ul class="sub-menu">
+                        <li><a href="">Skirts</a></li>
+                        <li><a href="">Shirts</a></li>
+                        <li><a href="">Jacket&Coat</a></li>
+                        <li><a href="">Trousers</a></li>
+                        <li><a href="">TOP</a></li>
+                        <li><a href=""> ACCESORIES</a></li>
+
+
+                    </ul>
+                </li>
+                <li><a href="#">Collection</a>
+                    <ul class="sub-menu">
+                        <li ><a href="">Spring Summer - 2024</a></li>
+                        <li ><a href="">Fall Winter-2023</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Information</a></li>
+
+        </div>
+
+        <div class="right-menu">
+            <li><input placeholder="Tìm kiêm" type="text"><i class="fa-solid fa-magnifying-glass"></i></li>
+            
+            <!-- headphone -->
+            <li><i class="icon-ic_headphones"></i></li>
+            <!-- user -->
+            <li><i class="fa-regular fa-user"></i></li>
+            <!-- shopping-bag -->
+            <li><i class="fa-solid fa-bag-shopping"></i></li>
+            <button id="switch-mode" ><i class="fa-solid fa-moon"></i></button>
+        </div>
+
+        
+    </header>
+<!-- ---------------- -------HEADER---------------- -->
+
+<!-- ---------------- -------PRODUCT---------------- -->
+<section class="product">
+    <div class="container">
+        <div class="product-top row">
+            <p>Home</p> <span>&#8594; </span> <p>Men</p> <span>&#8594;</span> <p>Shirts</p><span>&#8594;</span> <p>BROWN RELAXED SHORT SLEEVE SHIRT</p>
+        </div>
+    
+        <div class="product-content row">
+            <div class="product-content-left row">
+                <div class="product-content-left-big-img">
+                    <img src="./img/sp1.png" alt="Image" class="zoomable">  
+                </div>
+                <div class="product-content-left-small-img">
+                    <img src="./img/sp1.png" alt="" style="cursor: pointer;"> 
+                    <img src="./img/sp1.1.png" alt="" style="cursor: pointer;">
+                    <img src="./img/sp1.2.jpg" alt="" style="cursor: pointer;">
+                </div>
+            </div>
+            <div class="product-content-right">
+                <div class="product-content-right-product-name">
+                    <h1 style="padding-bottom: 20px; border-bottom: 1px solid #ddd;">BROWN RELAXED SHORT SLEEVE SHIRT</h1>
+                    <br>
+                    <p style="padding-bottom: 20px; border-bottom: 1px solid #ddd;">ID: FW23-SH001</p>
+                </div>
+                <div class="product-content-right-product-price">
+                    <p style="padding: 20px 0; border-bottom: 1px solid #ddd;">590.000<sup>đ</sup></p> 
+                </div>
+                <div class="product-content-right-description">
+                    <p style="padding: 20px 0; border-bottom: 1px solid #ddd;">In this collection, GIO HANOI has delicately refined the concealed-button shirt to bestow an air of elegance upon its wearers. The welt pocket adorning the front, which often appear in tailor-made items, infusing them with a refreshing allure that breaths familiarity yet exudes novelty. - short-sleeved shirt in cotton fabric - point collar - a front pocket - hidden buttons</p>
+                </div>
+                <div class="product-content-right-product-color row" style="padding: 20px 0; border-bottom: 1px solid #ddd;">
+                    <p><span>Color</span>: </p>
+                    <div class="circle-black" style="border: 1px solid white;"></div>
+                    <div class="circle-brown"></div>
+                    <div class="circle-white"></div>
+
+                </div>
+                <div class="product-content-right-product-color-size" style="padding: 20px 0; border-bottom: 1px solid #ddd;">
+                    <p style="font-weight: bold;">Size: </p>
+                    <div class="size">
+                    <span>S</span> <span>M</span> <span>L</span>
+                    </div>
+                </div>
+                <div class="quantity" style="padding: 20px 0; border-bottom: 1px solid #ddd;">
+                    <p style="font-weight: bold;margin-right: 5px;">QUANTITY: </p>
+                    <input type="number" min="0" value="1">
+                </div>
+                <div class="product-content-right-product-button" style="padding: 20px 0; border-bottom: 1px solid #ddd;">
+                    <a href="./cart.html"><button>BUY NOW</button></a>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+
+</section>
+
+<!-- ---------------- -------recommend---------------- -->
+
+
+<section class="product-related row">
+
+        <div class="product-related-item">
+            <img src="./img/sp3.png" alt="">
+            <h1>BLACK RELAXED SHORT SLEEVE SHIRT</h1>
+            <p>590.000<sup>đ</sup></p>
+        </div>
+        <div class="product-related-item">
+            <img src="./img/sp4.png" alt="">
+            <h1>BLACK RELAXED SHORT SLEEVE SHIRT</h1>
+            <p>590.000<sup>đ</sup></p>
+        </div>
+        <div class="product-related-item">
+            <img src="./img/sp5.png" alt="">
+            <h1>BLACK RELAXED SHORT SLEEVE SHIRT</h1>
+            <p>590.000<sup>đ</sup></p>
+        </div>
+        <div class="product-related-item">
+            <img src="./img/sp7.png" alt="">
+            <h1>BLACK RELAXED SHORT SLEEVE SHIRT</h1>
+            <p>590.000<sup>đ</sup></p>
+        </div>
+        <div class="product-related-item">
+            <img src="./img/sp8.png" alt="">
+            <h1>BLACK RELAXED SHORT SLEEVE SHIRT</h1>
+            <p>590.000<sup>đ</sup></p>
+        </div>
+    
+</section>
+
+
+
+<!-- -------------------------------------Footer-------------------------- -->
+<footer>
+    <div class="left-footer">
+        <li><input placeholder="Email Address" type="text"></li>
+        <button>Subcribe</button>
+    </div>
+    <div class="right-footer">
+        <li><a href=""></a>CUSTOMER CARE</li>
+        <li><a href=""></a>SIZE CHART</li>
+        <li><a href=""></a>LEGAL</li>
+        <li><a href=""></a>FACEBOOK</li>
+        <li><a href=""></a>INSTARGRAM</li>
+        <li><a href=""></a>#ADDRESS</li>
+    </div>
+</footer>
+
+
+</body>
+<script src="./js/script.js"></script>
+</html> 

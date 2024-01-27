@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>GioHaNoi</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- REPONSIVE -->
+    <style>
+        @media only screen and (max-width: 450px) {
+    .menu,
+    .right-menu {
+        display: none;
+    }
+    .header{
+        padding: 0px;
+    }
+    .logo {
+        display: flex;
+        justify-content: center;
+    }
+    .cart-content {
+        flex-direction: column;
+    }
+    .cart{
+        padding: 0px;
+    }
+    .cart-content-right{
+        width: 100%;
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+    header {
+        padding: 12px 20px;
+    }
+
+    .menu > li {
+        padding: 10px;
+    }
+
+    .right-menu > li {
+        padding: 0 10px;
+    }
+
+    .left-footer input {
+        width: 100%;
+    }
+    footer {
+        display: block;
+    }
+    .right-footer {
+        justify-content: left;
+    }
+    .cart-content {
+        flex-direction: column;
+    }
+    .cart{
+        padding: 0px;
+    }
+    .nav-bar-btn{
+        display: block;
+    }
+    .logo,
+    .menu,
+    .right-menu{
+        display: none;
+    }
+    .logo-mobile{
+        display: block;
+    }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    header {
+        padding: 12px 30px;
+    }
+
+    .menu > li {
+        padding: 12px 20px;
+    }
+
+    .right-menu > li {
+        padding: 0 15px;
+    }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+    header {
+        padding: 12px 40px;
+    }
+
+    .menu > li {
+        padding: 15px 25px;
+    }
+
+    .right-menu > li {
+        padding: 0 20px;
+    }
+}
+    </style>
+    <!-- DARK MODE  -->
+    <style>
+        /* Existing styles for dark mode */
+        .dark {
+            background-color: black;
+            color: white;
+        }
+
+        .dark header {
+            background-color: #3f3e3e;
+        }
+
+        .dark .right-menu #switch-mode {
+            color: white;
+        }
+
+        /* Updated styles for links inside <a> tags in dark mode */
+        .dark header .menu > li > a,
+        .dark header .menu .sub-menu li a {
+            color: white;
+        }
+        .dark .cart th,
+        .dark .cart td,
+        .dark .cart p{
+            color: white;
+        }
+        .dark .cart-content-right button {
+            border: 1px solid white;
+        } 
+        .dark footer .left-footer button{
+            background-color: black ;
+            color: white;
+        }
+        .dark header .right-menu input {
+            background-color: #3f3e3e;
+            color: white;
+        }
+    </style>
+</head>
+<body class="">
+    <header >
+        <!-- ----------------MOBILE/TABLET---------------- -->
+        <label for="nav-mobile-input" class="nav-bar-btn">
+            <li><i class="fa-solid fa-bars"></i></li>
+        </label>
+
+        <input type="checkbox" name="" class="nav-input" id="nav-mobile-input" hidden>
+        <label for="nav-mobile-input" class="nav-overlay"></label>
+        
+        <div class="right-menu-mobile">
+            <li class="rm-intem"><input placeholder="Tìm kiêm" type="text"><i class="fa-solid fa-magnifying-glass"></i></li>
+            
+            <!-- headphone -->
+            <li class="rm-intem"><i class="icon-ic_headphones"></i></li>
+            <!-- user -->
+            <li class="rm-intem"><i class="fa-regular fa-user"></i></li>
+            <!-- shopping-bag -->
+            <li class="rm-intem"><i class="fa-solid fa-bag-shopping"></i></li>
+        </div>
+        <div class="logo-mobile">
+            <img src="./img/1.png" style="height: 64px;">
+        </div>
+        
+
+
+
+
+        <!-- ------------------LAPTOP---------------- -->
+        <!-- Dung flex chia cai o giua lam 3 con 2 cái trái phải mỗi cái 1 -->
+        <div class="logo">
+            <a href="./index.html"><img src="./img/1.png" style="height: 64px;"></a>
+        </div>
+
+        <div class="menu row">
+                <li><a href="./category.html">Men</a>
+                    <ul class="sub-menu">
+                        <li><a href="">Shirts</a></li>
+                        <li><a href="">Jacket&Coat</a></li>
+                        <li><a href="">Trousers</a></li>
+                        <li><a href="">TOP</a></li>
+                        <li><a href=""> ACCESORIES</a></li>
+
+                    </ul>
+                
+                
+                </li>
+                <li><a href="#">Women</a>
+                    <ul class="sub-menu">
+                        <li><a href="">Skirts</a></li>
+                        <li><a href="">Shirts</a></li>
+                        <li><a href="">Jacket&Coat</a></li>
+                        <li><a href="">Trousers</a></li>
+                        <li><a href="">TOP</a></li>
+                        <li><a href=""> ACCESORIES</a></li>
+
+
+                    </ul>
+                </li>
+                <li><a href="#">Collection</a>
+                    <ul class="sub-menu">
+                        <li ><a href="">Spring Summer - 2024</a></li>
+                        <li ><a href="">Fall Winter-2023</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Information</a></li>
+
+        </div>
+
+        <div class="right-menu">
+            <li><input placeholder="Search" type="text"><i class="fa-solid fa-magnifying-glass"></i></li>
+            
+            <!-- headphone -->
+            <li><i class="icon-ic_headphones"></i></li>
+            <!-- user -->
+            <li><i class="fa-regular fa-user"></i></li>
+            <!-- shopping-bag -->
+            <li><i class="fa-solid fa-bag-shopping"></i></li>
+            <button id="switch-mode" ><i class="fa-solid fa-moon"></i></button>
+        </div>
+
+        
+    </header>
+<!-- ---------------- -------HEADER---------------- -->
+<section class="cart">
+    <div class="container">
+        <div class="cart-top-wrap">
+            <div class="cart-top">
+                <div class="cart-top-cart cart-top-item">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                </div>
+                <div class="cart-top-adress cart-top-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div class="cart-top-payment cart-top-item">
+                    <i class="fa-solid fa-money-check-dollar"></i>
+                </div>
+                <div class="cart-top-check cart-top-item">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="cart-content row">
+            <div class="cart-content-left">
+                <table>
+                    <tr>
+                        <th>ITEM</th>
+                        <th>NAME</th>
+                        <th>COLOR</th>
+                        <th>SIZE</th>
+                        <th>QUANTITY</th>
+                        <th>TOTAL</th>
+                        <th>DELETE</th>
+                    </tr>
+                    <tr>
+                        <td><img src="./img/sp1.png" alt=""></td>
+                        <td><p>BROWN RELAXED SHORT SLEEVE SHIRT</p></td>
+                        <td><div class="color" style="background-color: #8B684A;"></div></td>
+                        <td><p>L</p></td>
+                        <td><input type="number" value="1" min="1"></td>
+                        <td><p style="font-size: 18px ;">590.000 <sup>đ</sup></p></td>
+                        <td><span>X</span></td>
+                    </tr>
+                    <tr>
+                        <td><img src="./img/sp5.png" alt=""></td>
+                        <td><p>BROWN RELAXED SHORT SLEEVE SHIRT</p></td>
+                        <td><div class="color" style="background-color: #8B684A;"></div></td>
+                        <td><p>L</p></td>
+                        <td><input type="number" value="1" min="1"></td>
+                        <td><p style="font-size: 18px ;">590.000 <sup>đ</sup></p></td>
+                        <td><span>X</span></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="cart-content-right">
+                <table>
+                    <tr>
+                        <th colspan="2">Total</th>
+                    </tr>
+                    <tr>
+                        <td>Total product</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>Total price</td>
+                        <td><p>590.000 <sup>đ</sup></p></td>
+                    </tr>
+                    <tr>
+                        <td>Pre-check</td>
+                        <td style="font-weight: bold;"><p>590.000 <sub>đ</sub></p></td>
+                    </tr>
+                </table>
+                <div class="cart-content-right-text">
+                    <p>You will receive free shipping when the order is over 2,000,000</p>
+                </div>
+                <div class="cart-content-right-button">
+                    <a href="./delivery.html"><button>Continue</button></a>
+                    
+                    <button>Pay</button>
+                </div>
+                <div class="cart-content-right-dangnhap">
+                    <p>Account</p>
+                    <p style="margin-top: 20px;">Please <a href="./login.html" style="color: red;">log in</a> to your account to accumulate membership card points</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- -------------------------------------Footer-------------------------- -->
+<footer>
+    <div class="left-footer">
+        <li><input placeholder="Email Address" type="text"></li>
+        <button>Subcribe</button>
+    </div>
+    <div class="right-footer">
+        <li><a href=""></a>CUSTOMER CARE</li>
+        <li><a href=""></a>SIZE CHART</li>
+        <li><a href=""></a>LEGAL</li>
+        <li><a href=""></a>FACEBOOK</li>
+        <li><a href=""></a>INSTARGRAM</li>
+        <li><a href=""></a>#ADDRESS</li>
+    </div>
+</footer>
+
+
+</body>
+<script src="./js/script.js"></script>
+</html> 
